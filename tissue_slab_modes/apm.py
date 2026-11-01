@@ -1,7 +1,10 @@
 """Argument Principle Method (APM) root finder.
 
-A Python port of the Mathematica "APM Implementation Package" (numZeros / GetSubRegions
-/ APM / GetSolutions), generalised to the scaled multilayer dispersion function.
+A Python port of the author's Mathematica APM notebook (numZeros / GetSubRegions / APM /
+GetSolutions), generalised to the scaled multilayer dispersion function. That notebook builds on
+Sukru Ekin Kocabas's argument-principle notebook for metal-insulator-metal waveguides
+(https://kocabas.gitlab.io/publications/code/ModalShapes_Plasmon.nb; Kocabas, Veronis, Miller &
+Fan, Phys. Rev. B 79, 035120 (2009)).
 
 Method [Delves & Lyness, Math. Comput. 21, 543 (1967); Anemogiannis & Glytsis,
 J. Lightwave Technol. 10, 1344 (1992); Kravanja & Van Barel, Computing 63, 69 (1999)]:

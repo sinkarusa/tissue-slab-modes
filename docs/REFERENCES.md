@@ -8,7 +8,7 @@ Every equation and material value in the code cites one of these. Numbers in bra
 - **[AG92]** E. Anemogiannis, E. N. Glytsis, "Multilayer waveguides: efficient numerical analysis of general structures," *J. Lightwave Technol.* **10**(10), 1344–1351 (1992) — argument-principle method (APM) for multilayer guides.
 - **[DL67]** L. M. Delves, J. N. Lyness, "A numerical method for locating the zeros of an analytic function," *Math. Comput.* **21**(100), 543–560 (1967) — contour counting and moments.
 - **[KVB99]** P. Kravanja, M. Van Barel, "A derivative-free algorithm for computing zeros of analytic functions," *Computing* **63**(1), 69–91 (1999).
-- **[KVMF09]** Ş. E. Kocabaş, G. Veronis, D. A. B. Miller, S. Fan, "Modal analysis and coupling in metal-insulator-metal waveguides," *Phys. Rev. B* **79**, 035120 (2009). arXiv:0809.2850 — complete (bound + leaky + continuum) modal picture of MIM guides; the symmetric dispersion relation used in the original Mathematica APM notebook.
+- **[KVMF09]** Ş. E. Kocabaş, G. Veronis, D. A. B. Miller, S. Fan, "Modal analysis and coupling in metal-insulator-metal waveguides," *Phys. Rev. B* **79**, 035120 (2009). arXiv:0809.2850 — complete (bound + leaky + continuum) modal picture of MIM guides. Kocabaş's argument-principle Mathematica notebook for this guide, https://kocabas.gitlab.io/publications/code/ModalShapes_Plasmon.nb, is the basis of the author's notebook, which `apm.py` ports.
 - **[HM09]** J. Hu, C. R. Menyuk, "Understanding leaky modes: slab waveguide revisited," *Adv. Opt. Photon.* **1**, 58–106 (2009) — proper/improper modes and their physical meaning.
 
 ## Dipoles over layered media
