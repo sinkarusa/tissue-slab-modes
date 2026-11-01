@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tissue-slab-modes"
+version = "0.1.0"
+description = "Complex-plane (argument-principle) mode solver for lossy planar multilayers, with Gabriel tissue permittivities"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Sinan Karaveli" }]
+dependencies = ["numpy>=1.26", "scipy>=1.11", "mpmath>=1.3", "matplotlib>=3.8"]
+
+[project.optional-dependencies]
+check = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["tissue_slab_modes"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

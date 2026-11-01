@@ -1,0 +1,5 @@
+# third-party head models, downloaded by head_data_check/head_data_check.py (not ours to redistribute)
+head_data_check/data/
+# raw 3D field, frame and ribbon arrays (regenerate with scripts/head_3d.py run / analyze)
+results/case_*/*.npz
+results/case_*/run_*.log

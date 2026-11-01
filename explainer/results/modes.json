@@ -1,0 +1,2640 @@
+{
+ "modes": [
+  {
+   "id": "zenneck_temple",
+   "title": "Zenneck surface wave on skin",
+   "where": "temple, 2.44 GHz",
+   "stack": "",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     2.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ],
+    [
+     "temporalis",
+     8.1,
+     [
+      52.743083212909085,
+      -12.7564823828054
+     ]
+    ],
+    [
+     "cortical bone",
+     1.5,
+     [
+      11.387119170486656,
+      -2.8902077802398716
+     ]
+    ],
+    [
+     "dura",
+     0.5,
+     [
+      42.04779816186598,
+      -12.249748521546469
+     ]
+    ],
+    [
+     "CSF",
+     2.0,
+     [
+      66.25837704488113,
+      -25.40580524931947
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "gray matter",
+    [
+     48.92704401896348,
+     -13.266542958381773
+    ]
+   ],
+   "n_eff": [
+    0.9732673715977803,
+    -0.023055634237873518
+   ],
+   "loss_dB_per_cm": 0.10240952987794456,
+   "sheet": "P/P",
+   "beta_over_2alpha": 21.106931207274986,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      0.09050376014281157,
+      -0.24793772656303537
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -0.05328218565325882,
+     "evanescent": false,
+     "decay_dB_per_cm": 0.4020035811110457,
+     "depth_lam0": 1.758545090731642,
+     "kappa": [
+      -0.24793772656303537,
+      -0.09050376014281157
+     ],
+     "angle_deg": 75.70801645756043,
+     "direction": "toward the guide"
+    },
+    "bottom": {
+     "medium": "gray matter",
+     "eps": [
+      48.92704401896348,
+      -13.266542958381773
+     ],
+     "gamma": [
+      0.9456161853021448,
+      6.991031123841613
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -47.98032620461674,
+     "evanescent": false,
+     "decay_dB_per_cm": 4.200279549138952,
+     "depth_lam0": 0.1683081841931903,
+     "kappa": [
+      6.991031123841613,
+      -0.9456161853021448
+     ],
+     "angle_deg": 7.925581293615211,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "air": 0.9911252131859711,
+    "CSF": 0.0001344392987938851,
+    "dura": 7.390238603879147e-05,
+    "bone": 0.0008428622204579616,
+    "temporalis": 0.0014635141110047108,
+    "fat": 0.00520536382042523,
+    "skin": 0.00039878513191252,
+    "gray matter": 0.0007559198453956761
+   },
+   "notes": {
+    "selection": "lowest-loss P/P root with more than half its power in air (pick 'surface'), as for figure 01"
+   },
+   "checks": [
+    [
+     "n",
+     "0.973 \u2212 0.023j",
+     "README",
+     "0.973 \u2212 0.023j",
+     true
+    ],
+    [
+     "loss",
+     "0.10",
+     "README",
+     "0.10",
+     true
+    ],
+    [
+     "sheet",
+     "P/P",
+     "README",
+     "P/P",
+     true
+    ],
+    [
+     "share:air",
+     "99",
+     "README",
+     "99",
+     true
+    ],
+    [
+     "depth:top",
+     "1.8",
+     "decision Q40",
+     "1.8",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "zenneck_skin",
+   "title": "Zenneck surface wave on skin",
+   "where": "skin half-space (no layers), 2.44 GHz",
+   "stack": "air | skin, 2.44 GHz",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "skin",
+    [
+     38.01823855924451,
+     -10.749205472698867
+    ]
+   ],
+   "n_eff": [
+    0.9880232338714383,
+    -0.0033210369187384402
+   ],
+   "loss_dB_per_cm": 0.014751527806448672,
+   "sheet": "P/P",
+   "beta_over_2alpha": 148.75222077428123,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      0.021064550660580248,
+      -0.15577173656017615
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -0.023821118616440762,
+     "evanescent": false,
+     "decay_dB_per_cm": 0.09356544729949424,
+     "depth_lam0": 7.555582155841307,
+     "kappa": [
+      -0.15577173656017615,
+      -0.021064550660580248
+     ],
+     "angle_deg": 81.04049650880641,
+     "direction": "toward the guide"
+    },
+    "bottom": {
+     "medium": "skin",
+     "eps": [
+      38.01823855924451,
+      -10.749205472698867
+     ],
+     "gamma": [
+      0.8735852909672203,
+      6.148594224573218
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -37.04205967786095,
+     "evanescent": false,
+     "decay_dB_per_cm": 3.88032955559638,
+     "depth_lam0": 0.18218592361563393,
+     "kappa": [
+      6.148594224573218,
+      -0.8735852909672203
+     ],
+     "angle_deg": 9.128871167441039,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "air": 0.9994124940841206,
+    "skin": 0.0005875059158793744
+   },
+   "notes": {
+    "selection": "n = sqrt(eps/(1+eps)) on a skin half-space, as in figure 05"
+   },
+   "checks": [
+    [
+     "depth:top",
+     "7.6",
+     "decision Q40",
+     "7.6",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "fat_arm",
+   "title": "Fat mode",
+   "where": "upper arm, 10 mm fat, 2.44 GHz",
+   "stack": "",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     10.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "muscle",
+    [
+     52.743083212909085,
+     -12.7564823828054
+    ]
+   ],
+   "n_eff": [
+    1.832099079756377,
+    -0.666669100647875
+   ],
+   "loss_dB_per_cm": 2.9612401236548247,
+   "sheet": "P/P",
+   "beta_over_2alpha": 1.374069293129025,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      1.583402967330287,
+      -0.7713790304803736
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 1.9121393482855171,
+     "evanescent": true,
+     "decay_dB_per_cm": 7.033228920038295,
+     "depth_lam0": 0.1005144908628283
+    },
+    "bottom": {
+     "medium": "muscle",
+     "eps": [
+      52.743083212909085,
+      -12.7564823828054
+     ],
+     "gamma": [
+      0.7266827220750192,
+      7.096408362205908
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -49.83094386462357,
+     "evanescent": false,
+     "decay_dB_per_cm": 3.227811266014933,
+     "depth_lam0": 0.21901572482339132,
+     "kappa": [
+      7.096408362205908,
+      -0.7266827220750192
+     ],
+     "angle_deg": 14.476106706505263,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "air": 0.048773180793961785,
+    "fat": 0.8163211947538852,
+    "skin": 0.004370900854998269,
+    "muscle": 0.13053472359715465
+   },
+   "notes": {
+    "selection": "lowest-loss P/P root with Re n >= 1 and under half its power in air (pick 'tissue')"
+   },
+   "checks": [
+    [
+     "n",
+     "1.832 \u2212 0.667j",
+     "README",
+     "1.832 \u2212 0.667j",
+     true
+    ],
+    [
+     "loss",
+     "2.96",
+     "README",
+     "2.96",
+     true
+    ],
+    [
+     "sheet",
+     "P/P",
+     "README",
+     "P/P",
+     true
+    ],
+    [
+     "share:fat",
+     "82",
+     "README",
+     "82",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "fat_arm_twin",
+   "title": "The fat mode's leaky twin",
+   "where": "upper arm, 10 mm fat, 2.44 GHz",
+   "stack": "",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     10.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "muscle",
+    [
+     52.743083212909085,
+     -12.7564823828054
+    ]
+   ],
+   "n_eff": [
+    1.797138445184856,
+    -0.866378658555629
+   ],
+   "loss_dB_per_cm": 3.848318818886225,
+   "sheet": "I/P",
+   "beta_over_2alpha": 1.0371553058456737,
+   "kind": "leaky: grows into the air",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      -1.5694777331656284,
+      0.9920512808025244
+     ],
+     "proper": false,
+     "re_n2_minus_eps": 1.4790946111607903,
+     "evanescent": true,
+     "decay_dB_per_cm": -6.9713752026549605,
+     "depth_lam0": null
+    },
+    "bottom": {
+     "medium": "muscle",
+     "eps": [
+      52.743083212909085,
+      -12.7564823828054
+     ],
+     "gamma": [
+      0.6769543181733182,
+      7.121955893618115
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -50.263988601748295,
+     "evanescent": false,
+     "decay_dB_per_cm": 3.0069254550842577,
+     "depth_lam0": 0.23510440633772198,
+     "kappa": [
+      7.121955893618115,
+      -0.6769543181733182
+     ],
+     "angle_deg": 14.162239059511585,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": null,
+   "notes": {
+    "selection": "the I/P root nearest the fat mode, as in figure 02"
+   },
+   "checks": [
+    [
+     "n",
+     "1.797 \u2212 0.866j",
+     "README",
+     "1.797 \u2212 0.866j",
+     true
+    ],
+    [
+     "loss",
+     "3.85",
+     "README",
+     "3.85",
+     true
+    ],
+    [
+     "sheet",
+     "I/P",
+     "README",
+     "I/P",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "fat_arm_8mm",
+   "title": "Fat mode, 8 mm of fat",
+   "where": "upper arm, 8 mm fat, 2.44 GHz",
+   "stack": "upper arm, 8 mm fat",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     8.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "muscle",
+    [
+     52.743083212909085,
+     -12.7564823828054
+    ]
+   ],
+   "n_eff": [
+    1.6999670176515325,
+    -0.8164802915800946
+   ],
+   "loss_dB_per_cm": 3.6266780585011857,
+   "sheet": "P/P",
+   "beta_over_2alpha": 1.0410337121314153,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      1.4589024644929207,
+      -0.9513929820737527
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 1.2232477945643292,
+     "evanescent": true,
+     "decay_dB_per_cm": 6.480217112443001,
+     "depth_lam0": 0.10909224363207431
+    },
+    "bottom": {
+     "medium": "muscle",
+     "eps": [
+      52.743083212909085,
+      -12.7564823828054
+     ],
+     "gamma": [
+      0.6987198895223851,
+      7.141991662159718
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -50.519835418344755,
+     "evanescent": false,
+     "decay_dB_per_cm": 3.103604726900654,
+     "depth_lam0": 0.22778075374480444,
+     "kappa": [
+      7.141991662159718,
+      -0.6987198895223851
+     ],
+     "angle_deg": 13.388647125762834,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "air": 0.06926921553560009,
+    "fat": 0.7678520286335824,
+    "skin": 0.005592669571911777,
+    "muscle": 0.15728608625890575
+   },
+   "notes": {
+    "selection": "as for the 10 mm upper arm"
+   },
+   "checks": [
+    [
+     "n",
+     "1.70 \u2212 0.82j",
+     "README",
+     "1.70 \u2212 0.82j",
+     true
+    ],
+    [
+     "kappa:bottom",
+     "7.14 \u2212 0.70j",
+     "README",
+     "7.14 \u2212 0.70j",
+     true
+    ],
+    [
+     "angle:bottom",
+     "13",
+     "README",
+     "13",
+     true
+    ],
+    [
+     "decay:bottom",
+     "3.1",
+     "README",
+     "3.1",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "fat_abdomen",
+   "title": "Fat mode, abdomen",
+   "where": "abdomen, 20 mm fat, 2.44 GHz",
+   "stack": "",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     2.0,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     20.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "muscle",
+    [
+     52.743083212909085,
+     -12.7564823828054
+    ]
+   ],
+   "n_eff": [
+    2.129236441042172,
+    -0.38790069507240826
+   ],
+   "loss_dB_per_cm": 1.7229943627591646,
+   "sheet": "P/P",
+   "beta_over_2alpha": 2.7445638382327644,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      1.8905149843802904,
+      -0.43688217352294584
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 3.3831808726242762,
+     "evanescent": true,
+     "decay_dB_per_cm": 8.397372580605794,
+     "depth_lam0": 0.08418602571619722
+    },
+    "bottom": {
+     "medium": "muscle",
+     "eps": [
+      52.743083212909085,
+      -12.7564823828054
+     ],
+     "gamma": [
+      0.7932745188830712,
+      6.999227586140773
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -48.359902340284805,
+     "evanescent": false,
+     "decay_dB_per_cm": 3.5236016370140364,
+     "depth_lam0": 0.20063034838933835,
+     "kappa": [
+      6.999227586140773,
+      -0.7932745188830712
+     ],
+     "angle_deg": 16.920296007530307,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "air": 0.010585006912390102,
+    "fat": 0.9187241444879319,
+    "skin": 0.0027292634126405116,
+    "muscle": 0.06796158518703753
+   },
+   "notes": {
+    "selection": "lowest-loss P/P root with Re n >= 1 and under half its power in air (pick 'tissue')"
+   },
+   "checks": []
+  },
+  {
+   "id": "fat_wrist",
+   "title": "Fat mode, volar wrist",
+   "where": "volar wrist, 3 mm fat, 2.44 GHz",
+   "stack": "",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     1.3000000000000003,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     3.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ],
+    [
+     "tendon",
+     3.0,
+     [
+      43.13873576984638,
+      -12.35087884711422
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "muscle",
+    [
+     52.743083212909085,
+     -12.7564823828054
+    ]
+   ],
+   "n_eff": [
+    1.30461891341666,
+    -2.577466231152348
+   ],
+   "loss_dB_per_cm": 11.44870283268924,
+   "sheet": "P/P",
+   "beta_over_2alpha": 0.2530816694411906,
+   "kind": "\"bound\": proper only because of loss, overdamped (\u03b2/2\u03b1 < 1)",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      1.2313448060539134,
+      -2.730844502142547
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -5.9413016634862235,
+     "evanescent": false,
+     "decay_dB_per_cm": 5.469441499834479,
+     "depth_lam0": 0.12925294548643823,
+     "kappa": [
+      -2.730844502142547,
+      -1.2313448060539134
+     ],
+     "angle_deg": 25.53542035064539,
+     "direction": "toward the guide"
+    },
+    "bottom": {
+     "medium": "muscle",
+     "eps": [
+      52.743083212909085,
+      -12.7564823828054
+     ],
+     "gamma": [
+      0.39651340732271145,
+      7.605367036414612
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -57.684384876395306,
+     "evanescent": false,
+     "decay_dB_per_cm": 1.7612506867200408,
+     "depth_lam0": 0.4013860317272033,
+     "kappa": [
+      7.605367036414612,
+      -0.39651340732271145
+     ],
+     "angle_deg": 9.733738491363697,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "air": 0.0646975918971508,
+    "tendon": 0.06788591010469441,
+    "fat": 0.4299411343465304,
+    "skin": 0.008794615709522752,
+    "muscle": 0.4286807479421015
+   },
+   "notes": {
+    "selection": "lowest-loss P/P root with Re n >= 1 and under half its power in air (pick 'tissue')"
+   },
+   "checks": []
+  },
+  {
+   "id": "fat_sym_8mm",
+   "title": "Fat mode, symmetric model",
+   "where": "8 mm fat between muscle half-spaces, 2.44 GHz",
+   "stack": "muscle | fat 8 mm | muscle",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "fat",
+     8.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ]
+   ],
+   "top": [
+    "muscle",
+    [
+     52.743083212909085,
+     -12.7564823828054
+    ]
+   ],
+   "bottom": [
+    "muscle",
+    [
+     52.743083212909085,
+     -12.7564823828054
+    ]
+   ],
+   "n_eff": [
+    2.4198884668434943,
+    -0.8484340917269589
+   ],
+   "loss_dB_per_cm": 3.7686118529521155,
+   "sheet": "P/P",
+   "beta_over_2alpha": 1.4260910131026754,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "muscle",
+     "eps": [
+      52.743083212909085,
+      -12.7564823828054
+     ],
+     "gamma": [
+      0.6242987962121764,
+      6.927973182389165
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -47.60706342895148,
+     "evanescent": false,
+     "decay_dB_per_cm": 2.7730378424563575,
+     "depth_lam0": 0.2549339259622797,
+     "kappa": [
+      6.927973182389165,
+      -0.6242987962121764
+     ],
+     "angle_deg": 19.253920859057118,
+     "direction": "away from the guide"
+    },
+    "bottom": {
+     "medium": "muscle",
+     "eps": [
+      52.743083212909085,
+      -12.7564823828054
+     ],
+     "gamma": [
+      0.6242987962121764,
+      6.927973182389165
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -47.60706342895148,
+     "evanescent": false,
+     "decay_dB_per_cm": 2.7730378424563575,
+     "depth_lam0": 0.2549339259622797,
+     "kappa": [
+      6.927973182389165,
+      -0.6242987962121764
+     ],
+     "angle_deg": 19.253920859057118,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "muscle": 0.28047856907180574,
+    "fat": 0.7195214309281943
+   },
+   "notes": {
+    "selection": "TM0 of the symmetric slab: lowest-loss bound root with Re n > 1 (make_figures.tm0_sym), the model of figure 04"
+   },
+   "checks": [
+    [
+     "loss",
+     "3.77",
+     "README",
+     "3.77",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "skull_occipital",
+   "title": "Skull mode",
+   "where": "back of the head, 8.4 mm bone, 2.44 GHz",
+   "stack": "",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     2.0,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     3.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ],
+    [
+     "cortical bone",
+     1.5,
+     [
+      11.387119170486656,
+      -2.8902077802398716
+     ]
+    ],
+    [
+     "cancellous bone",
+     5.6,
+     [
+      18.56046575843416,
+      -5.905234607645007
+     ]
+    ],
+    [
+     "cortical bone",
+     1.3000000000000003,
+     [
+      11.387119170486656,
+      -2.8902077802398716
+     ]
+    ],
+    [
+     "dura",
+     0.5,
+     [
+      42.04779816186598,
+      -12.249748521546469
+     ]
+    ],
+    [
+     "CSF",
+     2.0,
+     [
+      66.25837704488113,
+      -25.40580524931947
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "gray matter",
+    [
+     48.92704401896348,
+     -13.266542958381773
+    ]
+   ],
+   "n_eff": [
+    2.948606944862946,
+    -1.24594965523178
+   ],
+   "loss_dB_per_cm": 5.53431396106509,
+   "sheet": "P/P",
+   "beta_over_2alpha": 1.1832769215359775,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      2.8034312885774098,
+      -1.3104711434644374
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 6.141892371921805,
+     "evanescent": true,
+     "decay_dB_per_cm": 12.452404360089842,
+     "depth_lam0": 0.0567714799147647
+    },
+    "bottom": {
+     "medium": "gray matter",
+     "eps": [
+      48.92704401896348,
+      -13.266542958381773
+     ],
+     "gamma": [
+      0.45668809212367006,
+      6.480255832953606
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -41.78515164704167,
+     "evanescent": false,
+     "decay_dB_per_cm": 2.028537247455663,
+     "depth_lam0": 0.3484981234167948,
+     "kappa": [
+      6.480255832953606,
+      -0.45668809212367006
+     ],
+     "angle_deg": 24.466198329093682,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "air": 0.005270507525835114,
+    "CSF": 0.026978217177472626,
+    "dura": 0.01359282834888469,
+    "bone": 0.45729399731437415,
+    "fat": 0.1659861581683501,
+    "skin": 0.004795816941038999,
+    "gray matter": 0.3260824745240444
+   },
+   "notes": {
+    "selection": "pick 'tissue', as for figure 01"
+   },
+   "checks": [
+    [
+     "n",
+     "2.949 \u2212 1.246j",
+     "README",
+     "2.949 \u2212 1.246j",
+     true
+    ],
+    [
+     "loss",
+     "5.53",
+     "README",
+     "5.53",
+     true
+    ],
+    [
+     "sheet",
+     "P/P",
+     "README",
+     "P/P",
+     true
+    ],
+    [
+     "share:bone",
+     "46",
+     "README",
+     "46",
+     true
+    ],
+    [
+     "b2a",
+     "1.2",
+     "README",
+     "1.2",
+     true
+    ],
+    [
+     "kappa:bottom",
+     "6.48 \u2212 0.46j",
+     "README",
+     "6.48 \u2212 0.46j",
+     true
+    ],
+    [
+     "angle:bottom",
+     "24",
+     "README",
+     "24",
+     true
+    ],
+    [
+     "decay:bottom",
+     "2.0",
+     "README",
+     "2.0",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "temporalis_6mm",
+   "title": "Temporalis mode, 6 mm of bone",
+   "where": "temple, 6 mm squama, 2.44 GHz",
+   "stack": "",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     2.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ],
+    [
+     "temporalis",
+     8.1,
+     [
+      52.743083212909085,
+      -12.7564823828054
+     ]
+    ],
+    [
+     "cortical bone",
+     6.0,
+     [
+      11.387119170486656,
+      -2.8902077802398716
+     ]
+    ],
+    [
+     "dura",
+     0.5,
+     [
+      42.04779816186598,
+      -12.249748521546469
+     ]
+    ],
+    [
+     "CSF",
+     2.0,
+     [
+      66.25837704488113,
+      -25.40580524931947
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "gray matter",
+    [
+     48.92704401896348,
+     -13.266542958381773
+    ]
+   ],
+   "n_eff": [
+    4.487245112688961,
+    -0.971250624836846
+   ],
+   "loss_dB_per_cm": 4.314143729770379,
+   "sheet": "P/P",
+   "beta_over_2alpha": 2.3100346079276624,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      4.3797535098414535,
+      -0.9950878764528929
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 18.192040925105,
+     "evanescent": true,
+     "decay_dB_per_cm": 19.454181710921777,
+     "depth_lam0": 0.036338790010503746
+    },
+    "bottom": {
+     "medium": "gray matter",
+     "eps": [
+      48.92704401896348,
+      -13.266542958381773
+     ],
+     "gamma": [
+      0.41600003548432185,
+      5.468826119322266
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -29.735003093858477,
+     "evanescent": false,
+     "decay_dB_per_cm": 1.847807248484828,
+     "depth_lam0": 0.3825839651830836,
+     "kappa": [
+      5.468826119322266,
+      -0.41600003548432185
+     ],
+     "angle_deg": 39.369337082348174,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": {
+    "air": 0.001355070123405254,
+    "CSF": 0.011918529069764898,
+    "dura": 0.005833315060260377,
+    "bone": 0.35807077638166446,
+    "temporalis": 0.3952827249319503,
+    "fat": 0.05747498460016092,
+    "skin": 0.0017149763157074786,
+    "gray matter": 0.16834962351708632
+   },
+   "notes": {
+    "selection": "lowest-loss P/P root at 6 mm of bone with 2 < Re n < 7, continued to 6.0 mm (make_figures.temporalis_mode), as for figure 07"
+   },
+   "checks": [
+    [
+     "n",
+     "4.49 \u2212 0.97j",
+     "README",
+     "4.49 \u2212 0.97j",
+     true
+    ],
+    [
+     "loss",
+     "4.3",
+     "README",
+     "4.3",
+     true
+    ],
+    [
+     "sheet",
+     "P/P",
+     "README",
+     "P/P",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "temporalis_1p5mm",
+   "title": "Temporalis mode, 1.5 mm of bone",
+   "where": "temple, 1.5 mm squama, 2.44 GHz",
+   "stack": "",
+   "f_GHz": 2.44,
+   "pol": "TM",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     2.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ],
+    [
+     "temporalis",
+     8.1,
+     [
+      52.743083212909085,
+      -12.7564823828054
+     ]
+    ],
+    [
+     "cortical bone",
+     1.5,
+     [
+      11.387119170486656,
+      -2.8902077802398716
+     ]
+    ],
+    [
+     "dura",
+     0.5,
+     [
+      42.04779816186598,
+      -12.249748521546469
+     ]
+    ],
+    [
+     "CSF",
+     2.0,
+     [
+      66.25837704488113,
+      -25.40580524931947
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "gray matter",
+    [
+     48.92704401896348,
+     -13.266542958381773
+    ]
+   ],
+   "n_eff": [
+    5.1511300250389445,
+    -1.3308172405055112
+   ],
+   "loss_dB_per_cm": 5.911282532828866,
+   "sheet": "P/I",
+   "beta_over_2alpha": 1.9353258540151939,
+   "kind": "leaky: grows into the gray matter",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      5.059530543461426,
+      -1.3549108136656272
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 23.763066007231014,
+     "evanescent": true,
+     "decay_dB_per_cm": 22.47364522758736,
+     "depth_lam0": 0.031456464532579165
+    },
+    "bottom": {
+     "medium": "gray matter",
+     "eps": [
+      48.92704401896348,
+      -13.266542958381773
+     ],
+     "gamma": [
+      -0.045147668911456884,
+      4.9158942547354085
+     ],
+     "proper": false,
+     "re_n2_minus_eps": -24.163978011732464,
+     "evanescent": false,
+     "decay_dB_per_cm": -0.2005389008432602,
+     "depth_lam0": null,
+     "kappa": [
+      4.9158942547354085,
+      0.045147668911456884
+     ],
+     "angle_deg": 46.338584689153734,
+     "direction": "away from the guide"
+    }
+   },
+   "shares": null,
+   "notes": {
+    "selection": "lowest-loss P/P root at 6 mm of bone with 2 < Re n < 7, continued to 1.5 mm (make_figures.temporalis_mode), as for figure 07"
+   },
+   "checks": [
+    [
+     "n",
+     "5.151 \u2212 1.331j",
+     "README",
+     "5.151 \u2212 1.331j",
+     true
+    ],
+    [
+     "loss",
+     "5.91",
+     "README",
+     "5.91",
+     true
+    ],
+    [
+     "sheet",
+     "P/I",
+     "README",
+     "P/I",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "limb_muscle_2p44",
+   "title": "Limb-muscle mode",
+   "where": "limb (assumed), 2.44 GHz",
+   "stack": "limb (assumed)",
+   "f_GHz": 2.44,
+   "pol": "TE",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      38.01823855924451,
+      -10.749205472698867
+     ]
+    ],
+    [
+     "fat",
+     10.0,
+     [
+      5.281075756222386,
+      -0.7668289863876816
+     ]
+    ],
+    [
+     "muscle",
+     25.0,
+     [
+      52.743083212909085,
+      -12.7564823828054
+     ]
+    ],
+    [
+     "cortical bone",
+     6.0,
+     [
+      11.387119170486656,
+      -2.8902077802398716
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "yellow marrow",
+    [
+     5.297983382461927,
+     -0.7005631738266213
+    ]
+   ],
+   "n_eff": [
+    7.0410414901926215,
+    -0.8926907703156668
+   ],
+   "loss_dB_per_cm": 3.9651931138043395,
+   "sheet": "P/P",
+   "beta_over_2alpha": 3.943718096078679,
+   "kind": "truly bound",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      6.97082493517059,
+      -0.9016827721482297
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 47.779368455207155,
+     "evanescent": true,
+     "decay_dB_per_cm": 30.963316693304574,
+     "depth_lam0": 0.02283157941449587
+    },
+    "bottom": {
+     "medium": "yellow marrow",
+     "eps": [
+      5.297983382461927,
+      -0.7005631738266213
+     ],
+     "gamma": [
+      6.654094902231022,
+      -0.8919607026947161
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 43.481385072745226,
+     "evanescent": true,
+     "decay_dB_per_cm": 29.5564513068697,
+     "depth_lam0": 0.023918345835213888
+    }
+   },
+   "shares": {
+    "air": 4.197007434946804e-06,
+    "bone": 0.009241643845426277,
+    "muscle": 0.9828833392655629,
+    "fat": 0.007677883131907837,
+    "skin": 7.476558079063501e-06,
+    "yellow marrow": 0.0001854601915889499
+   },
+   "notes": {
+    "selection": "truly bound TE root with the largest power share in muscle (3 truly bound TE roots at this frequency)"
+   },
+   "checks": [
+    [
+     "n",
+     "7.04 \u2212 0.89j",
+     "README",
+     "7.04 \u2212 0.89j",
+     true
+    ],
+    [
+     "loss",
+     "4.0",
+     "README",
+     "4.0",
+     true
+    ],
+    [
+     "share:muscle",
+     "98",
+     "README",
+     "98",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "limb_muscle_0p9",
+   "title": "Limb-muscle mode",
+   "where": "limb (assumed), 0.9 GHz",
+   "stack": "limb (assumed)",
+   "f_GHz": 0.9,
+   "pol": "TE",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      41.405391804764214,
+      -17.310857048760365
+     ]
+    ],
+    [
+     "fat",
+     10.0,
+     [
+      5.461917613024294,
+      -1.019434428337555
+     ]
+    ],
+    [
+     "muscle",
+     25.0,
+     [
+      55.03230209069941,
+      -18.831739630971175
+     ]
+    ],
+    [
+     "cortical bone",
+     6.0,
+     [
+      12.453710612563205,
+      -2.862123512730186
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "yellow marrow",
+    [
+     5.504339002337075,
+     -0.8130442768987143
+    ]
+   ],
+   "n_eff": [
+    6.346817715874184,
+    -1.293035112039442
+   ],
+   "loss_dB_per_cm": 2.1184894229706948,
+   "sheet": "P/P",
+   "beta_over_2alpha": 2.4542325482034486,
+   "kind": "truly bound",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      6.270795746291282,
+      -1.3087108061513455
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 37.61015531756754,
+     "evanescent": true,
+     "decay_dB_per_cm": 10.273978129777559,
+     "depth_lam0": 0.025380342388926298
+    },
+    "bottom": {
+     "medium": "yellow marrow",
+     "eps": [
+      5.504339002337075,
+      -0.8130442768987143
+     ],
+     "gamma": [
+      5.9035215181539025,
+      -1.3212683300812504
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 33.10581631523046,
+     "evanescent": true,
+     "decay_dB_per_cm": 9.67224151768235,
+     "depth_lam0": 0.026959322940126235
+    }
+   },
+   "shares": {
+    "air": 0.00537448422563124,
+    "bone": 0.05494990921325248,
+    "muscle": 0.8570123389243869,
+    "fat": 0.06022564904479954,
+    "skin": 0.0022647056817115484,
+    "yellow marrow": 0.020172912910218294
+   },
+   "notes": {
+    "selection": "truly bound TE root with the largest power share in muscle (1 truly bound TE roots at this frequency)"
+   },
+   "checks": [
+    [
+     "n",
+     "6.35 \u2212 1.29j",
+     "README",
+     "6.35 \u2212 1.29j",
+     true
+    ],
+    [
+     "loss",
+     "2.1",
+     "README",
+     "2.1",
+     true
+    ],
+    [
+     "share:muscle",
+     "86",
+     "README",
+     "86",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "limb_muscle_0p4",
+   "title": "Limb-muscle mode",
+   "where": "limb (assumed), 0.4 GHz",
+   "stack": "limb (assumed)",
+   "f_GHz": 0.4,
+   "pol": "TE",
+   "layers": [
+    [
+     "skin",
+     1.5,
+     [
+      46.786796974755305,
+      -30.921002542217494
+     ]
+    ],
+    [
+     "fat",
+     10.0,
+     [
+      5.579744909365973,
+      -1.8476903273279364
+     ]
+    ],
+    [
+     "muscle",
+     25.0,
+     [
+      57.12879303515344,
+      -35.784028829284566
+     ]
+    ],
+    [
+     "cortical bone",
+     6.0,
+     [
+      13.14728603018166,
+      -4.104339283972851
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "yellow marrow",
+    [
+     5.672847332715647,
+     -1.3377803238520212
+    ]
+   ],
+   "n_eff": [
+    5.02410668010649,
+    -2.098271057583448
+   ],
+   "loss_dB_per_cm": 1.5279004329949184,
+   "sheet": "P/P",
+   "beta_over_2alpha": 1.197201539321781,
+   "kind": "truly bound",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      4.93908244068394,
+      -2.134391916653109
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 19.838906501998295,
+     "evanescent": true,
+     "decay_dB_per_cm": 3.5964973030747105,
+     "depth_lam0": 0.0322235850491
+    },
+    "bottom": {
+     "medium": "yellow marrow",
+     "eps": [
+      5.672847332715647,
+      -1.3377803238520212
+     ],
+     "gamma": [
+      4.47572362920608,
+      -2.2059108857229455
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 15.166059169282647,
+     "evanescent": true,
+     "decay_dB_per_cm": 3.259092787995334,
+     "depth_lam0": 0.03555960025175344
+    }
+   },
+   "shares": {
+    "air": 0.08479978167594955,
+    "bone": 0.08266586644702134,
+    "muscle": 0.5585637925941134,
+    "fat": 0.11649632101119166,
+    "skin": 0.011188651947924177,
+    "yellow marrow": 0.14628558632379976
+   },
+   "notes": {
+    "selection": "truly bound TE root with the largest power share in muscle (1 truly bound TE roots at this frequency)"
+   },
+   "checks": [
+    [
+     "n",
+     "5.02 \u2212 2.10j",
+     "README",
+     "5.02 \u2212 2.10j",
+     true
+    ],
+    [
+     "loss",
+     "1.5",
+     "README",
+     "1.5",
+     true
+    ],
+    [
+     "share:muscle",
+     "56",
+     "README",
+     "56",
+     true
+    ],
+    [
+     "b2a",
+     "1.2",
+     "README",
+     "1.2",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "csf_uwb",
+   "title": "CSF mode",
+   "where": "back of the head, 2 mm CSF, 7.99 GHz",
+   "stack": "",
+   "f_GHz": 7.99,
+   "pol": "TE",
+   "layers": [
+    [
+     "skin",
+     2.0,
+     [
+      33.196554242173015,
+      -13.07517166325125
+     ]
+    ],
+    [
+     "fat",
+     3.0,
+     [
+      4.76283965188331,
+      -0.9951711900022915
+     ]
+    ],
+    [
+     "cortical bone",
+     1.5,
+     [
+      8.79392207833952,
+      -3.7744403782685945
+     ]
+    ],
+    [
+     "cancellous bone",
+     5.6,
+     [
+      13.838427809165267,
+      -6.884465131648091
+     ]
+    ],
+    [
+     "cortical bone",
+     1.3000000000000003,
+     [
+      8.79392207833952,
+      -3.7744403782685945
+     ]
+    ],
+    [
+     "dura",
+     0.5,
+     [
+      35.246854866902005,
+      -14.573633044974335
+     ]
+    ],
+    [
+     "CSF",
+     2.0,
+     [
+      56.27487822740092,
+      -26.15722511748003
+     ]
+    ]
+   ],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "gray matter",
+    [
+     40.88976976327835,
+     -17.25398062735194
+    ]
+   ],
+   "n_eff": [
+    6.6578814895879,
+    -1.577139304748858
+   ],
+   "loss_dB_per_cm": 22.939835900968646,
+   "sheet": "P/P",
+   "beta_over_2alpha": 2.110746168566287,
+   "kind": "truly bound",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      6.586472015230551,
+      -1.5942383964143205
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 40.84001754281348,
+     "evanescent": true,
+     "decay_dB_per_cm": 95.80167505860929,
+     "depth_lam0": 0.024163913962416544
+    },
+    "bottom": {
+     "medium": "gray matter",
+     "eps": [
+      40.88976976327835,
+      -17.25398062735194
+     ],
+     "gamma": [
+      1.5517249312553223,
+      -1.2073120900348058
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 0.9502477795351254,
+     "evanescent": true,
+     "decay_dB_per_cm": 22.570178283716835,
+     "depth_lam0": 0.10256646644398591
+    }
+   },
+   "shares": {
+    "air": 5.03693952663819e-13,
+    "CSF": 0.47229284012237277,
+    "dura": 0.04099273181452345,
+    "bone": 0.026363542401118448,
+    "fat": 3.1776810875461177e-09,
+    "skin": 1.475983001587318e-11,
+    "gray matter": 0.46035088246904077
+   },
+   "notes": {
+    "selection": "truly bound TE root with the largest power share in CSF (1 truly bound TE roots)"
+   },
+   "checks": [
+    [
+     "n",
+     "6.66 \u2212 1.58j",
+     "README",
+     "6.66 \u2212 1.58j",
+     true
+    ],
+    [
+     "loss",
+     "22.9",
+     "README",
+     "22.9",
+     true
+    ],
+    [
+     "share:CSF",
+     "47",
+     "README",
+     "47",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "lossy_core_uwb",
+   "title": "Lossy-core mode",
+   "where": "25 mm muscle between lossless fat, 7.99 GHz",
+   "stack": "lossless fat | muscle 25 mm | lossless fat",
+   "f_GHz": 7.99,
+   "pol": "TM",
+   "layers": [
+    [
+     "muscle",
+     25.0,
+     [
+      45.51656935213883,
+      -17.50721595056302
+     ]
+    ]
+   ],
+   "top": [
+    "fat (lossless)",
+    [
+     4.76283965188331,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "fat (lossless)",
+    [
+     4.76283965188331,
+     0.0
+    ]
+   ],
+   "n_eff": [
+    2.089012487184036,
+    -0.032064681296997785
+   ],
+   "loss_dB_per_cm": 0.4663877978027548,
+   "sheet": "P/P",
+   "beta_over_2alpha": 32.5749766204542,
+   "kind": "\"bound\": proper only because of loss",
+   "sides": {
+    "top": {
+     "medium": "fat (lossless)",
+     "eps": [
+      4.76283965188331,
+      0.0
+     ],
+     "gamma": [
+      0.10450670223020392,
+      -0.6409495103907853
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -0.3998946240591552,
+     "evanescent": false,
+     "decay_dB_per_cm": 1.520072825839583,
+     "depth_lam0": 1.5229161354772642,
+     "kappa": [
+      -0.6409495103907853,
+      -0.10450670223020392
+     ],
+     "angle_deg": 72.942971823086,
+     "direction": "toward the guide"
+    },
+    "bottom": {
+     "medium": "fat (lossless)",
+     "eps": [
+      4.76283965188331,
+      0.0
+     ],
+     "gamma": [
+      0.10450670223020392,
+      -0.6409495103907853
+     ],
+     "proper": true,
+     "re_n2_minus_eps": -0.3998946240591552,
+     "evanescent": false,
+     "decay_dB_per_cm": 1.520072825839583,
+     "depth_lam0": 1.5229161354772642,
+     "kappa": [
+      -0.6409495103907853,
+      -0.10450670223020392
+     ],
+     "angle_deg": 72.942971823086,
+     "direction": "toward the guide"
+    }
+   },
+   "shares": {
+    "fat (lossless)": 0.9928699790385483,
+    "muscle": 0.007130020961451668
+   },
+   "notes": {
+    "selection": "lowest-loss bound TM root with 1.5 < Re n < 3: one of the two coupled Zenneck-type waves on the fat | muscle faces",
+    "partner": [
+     [
+      2.0878759675758833,
+      -0.03505237300682333
+     ]
+    ],
+    "single interface (lossless fat | muscle)": [
+     2.088439457894935,
+     -0.03354419364920072
+    ]
+   },
+   "checks": [
+    [
+     "n",
+     "2.089 \u2212 0.032j",
+     "README",
+     "2.089 \u2212 0.032j",
+     true
+    ],
+    [
+     "loss",
+     "0.47",
+     "README",
+     "0.47",
+     true
+    ]
+   ]
+  },
+  {
+   "id": "gold_spp",
+   "title": "Surface plasmon on gold",
+   "where": "air | Drude gold, 10 \u00b5m free-space wavelength",
+   "stack": "air | gold, 10 \u00b5m",
+   "f_GHz": 29979.245799999997,
+   "pol": "TM",
+   "layers": [],
+   "top": [
+    "air",
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "bottom": [
+    "gold",
+    [
+     -5064.678988745251,
+     -1089.1209825802293
+    ]
+   ],
+   "n_eff": [
+    1.0000943721915256,
+    -2.0297033127825372e-05
+   ],
+   "loss_dB_per_cm": 1.1077116821099773,
+   "sheet": "P/P",
+   "beta_over_2alpha": 24636.466962762355,
+   "kind": "truly bound",
+   "sides": {
+    "top": {
+     "medium": "air",
+     "eps": [
+      1.0,
+      0.0
+     ],
+     "gamma": [
+      0.013817061788359597,
+      -0.0014691219388209067
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 0.000188752877192222,
+     "evanescent": true,
+     "decay_dB_per_cm": 754.0668953443796,
+     "depth_lam0": 11.518725582162334
+    },
+    "bottom": {
+     "medium": "gold",
+     "eps": [
+      -5064.678988745251,
+      -1089.1209825802293
+     ],
+     "gamma": [
+      71.57903405523854,
+      7.607820895859012
+     ],
+     "proper": true,
+     "re_n2_minus_eps": 5065.679177498128,
+     "evanescent": true,
+     "decay_dB_per_cm": 3906429.6598322922,
+     "depth_lam0": 0.0022234854827612406
+    }
+   },
+   "shares": {
+    "air": 0.9999999635713263,
+    "gold": 3.642867370203633e-08
+   },
+   "notes": {
+    "selection": "n = sqrt(eps/(1+eps)) at a free-space wavelength of 10 \u00b5m, Drude gold as in figure 05"
+   },
+   "checks": []
+  }
+ ],
+ "checks": {
+  "wavelengths": [
+   {
+    "tissue": "air",
+    "eps": [
+     1.0,
+     0.0
+    ],
+    "index": 1.0,
+    "wavelength_cm": 12.286576147540984,
+    "plane_wave_loss_dB_per_cm": -0.0
+   },
+   {
+    "tissue": "fat",
+    "eps": [
+     5.281075756222386,
+     -0.7668289863876816
+    ],
+    "index": 2.3040761833210635,
+    "wavelength_cm": 5.3325390177990055,
+    "plane_wave_loss_dB_per_cm": 0.7391540984330169
+   },
+   {
+    "tissue": "cortical bone",
+    "eps": [
+     11.387119170486656,
+     -2.8902077802398716
+    ],
+    "index": 3.401124911585372,
+    "wavelength_cm": 3.6125036471576757,
+    "plane_wave_loss_dB_per_cm": 1.887294987674913
+   },
+   {
+    "tissue": "cancellous bone",
+    "eps": [
+     18.56046575843416,
+     -5.905234607645007
+    ],
+    "index": 4.361060696778651,
+    "wavelength_cm": 2.8173366531258344,
+    "plane_wave_loss_dB_per_cm": 3.0073108984171517
+   },
+   {
+    "tissue": "skin",
+    "eps": [
+     38.01823855924451,
+     -10.749205472698867
+    ],
+    "index": 6.2260287915754935,
+    "wavelength_cm": 1.9734210294957328,
+    "plane_wave_loss_dB_per_cm": 3.8344099499654734
+   },
+   {
+    "tissue": "dura",
+    "eps": [
+     42.04779816186598,
+     -12.249748521546469
+    ],
+    "index": 6.551473731254988,
+    "wavelength_cm": 1.8753911946445965,
+    "plane_wave_loss_dB_per_cm": 4.152613123189243
+   },
+   {
+    "tissue": "muscle",
+    "eps": [
+     52.743083212909085,
+     -12.7564823828054
+    ],
+    "index": 7.314604892635462,
+    "wavelength_cm": 1.6797320330878618,
+    "plane_wave_loss_dB_per_cm": 3.873230691350264
+   },
+   {
+    "tissue": "gray matter",
+    "eps": [
+     48.92704401896348,
+     -13.266542958381773
+    ],
+    "index": 7.057648299668341,
+    "wavelength_cm": 1.7408881295655332,
+    "plane_wave_loss_dB_per_cm": 4.174755621107005
+   },
+   {
+    "tissue": "CSF",
+    "eps": [
+     66.25837704488113,
+     -25.40580524931947
+    ],
+    "index": 8.28313141973853,
+    "wavelength_cm": 1.483325028293325,
+    "plane_wave_loss_dB_per_cm": 6.811954144601093
+   }
+  ],
+  "tubes": [
+   {
+    "site": "femur shaft (muscle|cortex|yellow marrow|cortex|muscle)",
+    "source": "ASSUMED (cortex 5-8 mm, canal 10-14 mm)",
+    "cutoff_GHz": {
+     "thin": 3.0412013929797195,
+     "typical": 2.415395284953664,
+     "thick": 2.0032449370931147
+    },
+    "diameter_mm": {
+     "thin": 20.0,
+     "typical": 25.0,
+     "thick": 30.0
+    }
+   },
+   {
+    "site": "tibia shaft (muscle|cortex|yellow marrow|cortex|muscle)",
+    "source": "ASSUMED (cortex 4-6 mm, canal 8-12 mm)",
+    "cutoff_GHz": {
+     "thin": 3.80150174122465,
+     "typical": 3.0412013929797195,
+     "thick": 2.534334494149767
+    },
+    "diameter_mm": {
+     "thin": 16.0,
+     "typical": 20.0,
+     "thick": 24.0
+    }
+   },
+   {
+    "site": "trachea (wall|air|wall)",
+    "source": "Lawrence14 (ID 10-25 mm)",
+    "cutoff_GHz": {
+     "thin": 13.513917597161859,
+     "typical": 9.760051597950234,
+     "thick": 7.027237150524169
+    },
+    "diameter_mm": {
+     "thin": 13.000000000000002,
+     "typical": 18.000000000000004,
+     "thick": 25.0
+    }
+   },
+   {
+    "site": "ear canal (skin|air|skin)",
+    "source": "ASSUMED (~7 mm diameter)",
+    "cutoff_GHz": {
+     "thin": 29.280154793850702,
+     "typical": 25.097275537586317,
+     "thick": 21.960116095388024
+    },
+    "diameter_mm": {
+     "thin": 6.0,
+     "typical": 7.0,
+     "thick": 8.0
+    }
+   }
+  ],
+  "lossy_core": {
+   "rows": [
+    {
+     "fat_mm": 5.0,
+     "pol": "TM",
+     "eps2_threshold": 5.386717293572972
+    },
+    {
+     "fat_mm": 5.0,
+     "pol": "TE",
+     "eps2_threshold": 58.62707412793062
+    },
+    {
+     "fat_mm": 8.0,
+     "pol": "TM",
+     "eps2_threshold": 3.499676881753335
+    },
+    {
+     "fat_mm": 8.0,
+     "pol": "TE",
+     "eps2_threshold": 30.595464981263124
+    },
+    {
+     "fat_mm": 10.0,
+     "pol": "TM",
+     "eps2_threshold": 2.824149605483581
+    },
+    {
+     "fat_mm": 10.0,
+     "pol": "TE",
+     "eps2_threshold": 20.94973322633099
+    }
+   ],
+   "fat_eps2": 0.7668289863876816
+  },
+  "lossy_core_fat_loss": {
+   "rows": [
+    {
+     "scale": 0.0,
+     "n": [
+      2.089012487184036,
+      -0.032064681296997785
+     ],
+     "loss": 0.4663877978027548,
+     "proper": true,
+     "re_gamma_fat": 0.10450670223020392,
+     "zenneck_loss": 0.4879076283407401
+    },
+    {
+     "scale": 0.25,
+     "n": [
+      2.0875697506072632,
+      -0.08188217242482024
+     ],
+     "loss": 1.1909940948046467,
+     "proper": true,
+     "re_gamma_fat": 0.07208594787294899,
+     "zenneck_loss": 1.2133277051507714
+    },
+    {
+     "scale": 0.5,
+     "n": [
+      2.0877705750572177,
+      -0.13154138579186303
+     ],
+     "loss": 1.9132982071814235,
+     "proper": true,
+     "re_gamma_fat": 0.03972638083133225,
+     "zenneck_loss": 1.936443125652624
+    },
+    {
+     "scale": 1.0,
+     "n": [
+      2.092992158387975,
+      -0.22991456065164967
+     ],
+     "loss": 3.3441575368207594,
+     "proper": false,
+     "re_gamma_fat": -0.024809619245306447,
+     "zenneck_loss": 3.3689045894051453
+    }
+   ],
+   "fat_eps": [
+    4.76283965188331,
+    -0.9951711900022915
+   ],
+   "fat_bulk_loss": 3.298548733456447
+  },
+  "temporalis_threshold_mm": 1.6362372480508256,
+  "symmetric": {
+   "lossless fat, real muscle, 8 mm (figure 03, s = 1)": {
+    "n": [
+     2.457630177978507,
+     -0.6722384321681399
+    ],
+    "loss": 2.985978225276329,
+    "bound": true
+   },
+   "Re n at 25 mm of fat (figure 04)": 2.293906807264301,
+   "Re n at 1 mm of fat (figure 04)": 4.416850913699544
+  },
+  "scan": [
+   {
+    "stack": "abdomen",
+    "pol": "TM",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": []
+    }
+   },
+   {
+    "stack": "abdomen",
+    "pol": "TE",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": []
+    }
+   },
+   {
+    "stack": "upper arm",
+    "pol": "TM",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": []
+    }
+   },
+   {
+    "stack": "upper arm",
+    "pol": "TE",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": []
+    }
+   },
+   {
+    "stack": "volar wrist",
+    "pol": "TM",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": []
+    }
+   },
+   {
+    "stack": "volar wrist",
+    "pol": "TE",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": []
+    }
+   },
+   {
+    "stack": "back of the head",
+    "pol": "TM",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": [],
+     "6.75": [],
+     "7.0": []
+    }
+   },
+   {
+    "stack": "back of the head",
+    "pol": "TE",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": [],
+     "6.75": [],
+     "7.0": [
+      [
+       6.671890074709158,
+       -1.4512824990851778
+      ]
+     ]
+    }
+   },
+   {
+    "stack": "temple",
+    "pol": "TM",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": [],
+     "6.75": [],
+     "7.0": []
+    }
+   },
+   {
+    "stack": "temple",
+    "pol": "TE",
+    "cells": {
+     "0.4": [],
+     "0.9": [],
+     "1.5": [],
+     "2.44": [],
+     "3.5": [],
+     "4.5": [],
+     "5.5": [],
+     "6.0": [],
+     "6.5": [],
+     "6.75": [
+      [
+       6.683150898278761,
+       -1.3926521586816756
+      ]
+     ],
+     "7.0": [
+      [
+       6.636999772936654,
+       -1.2357691777784978
+      ],
+      [
+       6.677510314665932,
+       -1.4318226585136036
+      ]
+     ]
+    }
+   }
+  ]
+ }
+}
