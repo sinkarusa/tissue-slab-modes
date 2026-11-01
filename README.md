@@ -1,10 +1,12 @@
 # tissue-slab-modes
 
-`tissue_slab_modes` finds the modes of lossy planar multilayer stacks, such as layers of human tissue under air. The argument-principle method (APM) locates every root of the TM or TE dispersion function in a search region, and each root is placed on one of the function's four Riemann sheets, so bound, leaky and improper modes come from one search. Tissue permittivities follow the Cole-Cole model of Gabriel et al. (1996). The package also gives mode profiles, the power in each layer, and each pole's residue in the TM reflection coefficient, which sets how strongly a source above the stack excites that mode.
+`tissue_slab_modes` finds and classifies electromagnetic modes in lossy planar multilayer stacks, including layers of human tissue, and reports their fields, loss, power distribution and source coupling.
 
-**Post: [How can fat guide a radio wave?](explainer/README.md)** Fat and skull bone have a lower refractive index than the wet tissue around them, yet they guide a radio wave over a few centimeters: the wet tissue partly reflects a grazing wave, and its loss makes the mode mathematically "bound" (proper). The flat-layer modes in the post come from this solver.
+**Start with the illustrated explainer:** [How can fat guide a radio wave?](explainer/README.md). Fat cannot guide by the optical-fiber rule; the post shows how partial grazing reflection can nevertheless confine a lossy radio mode for a few centimeters.
 
 ## Method
+
+The argument-principle method (APM) locates every TM or TE root in a search region and places it on one of the dispersion function's four Riemann sheets, so bound, leaky and improper modes come from one search. Tissue permittivities follow the Cole-Cole model of Gabriel et al. (1996). The package also gives mode profiles, power in each layer and each pole's residue in the TM reflection coefficient.
 
 The dispersion function F depends on the normalized transverse decay constants γ_t = √(n² − ε_t) and γ_b = √(n² − ε_b) of the two half-spaces, so as a function of the effective index n it lives on a four-sheeted Riemann surface (Smith, Houde-Walter and Forbes 1992). Since γ_t² − γ_b² = ε_b − ε_t = C, the substitution γ_t = (√C/2)(t + 1/t), γ_b = (√C/2)(t − 1/t) makes F single-valued in t, and one rectangle in z = log t covers all four sheets.
 

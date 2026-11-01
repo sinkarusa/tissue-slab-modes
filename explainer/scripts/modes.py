@@ -627,7 +627,7 @@ def launch_gif(spec, st, fm, frames=16):
 
 
 def launch_combined(found, frames=40):
-    """Figure 4: the five modes, one row each: permittivity, mode profile, and the field along the guide; as a still
+    """README Figure 3: the five modes, one row each: permittivity, mode profile, and the field along the guide; as a still
     and as a GIF (one period in frames / 10 s)."""
     sel = [(s, st, fm) for s, st, fm in found if s.launch]
     order = ["limb_muscle_2p44", "fat_arm", "skull_occipital", "temporalis_1p5mm", "zenneck_temple"]
