@@ -2,11 +2,11 @@
 
 `tissue_slab_modes` finds and classifies electromagnetic modes in lossy planar multilayer stacks, including layers of human tissue, and reports their fields, loss, power distribution and source coupling.
 
-**Start with the illustrated explainer:** [How can fat guide a radio wave?](explainer/README.md). Fat cannot guide by the optical-fiber rule; the post shows how partial grazing reflection can nevertheless confine a lossy radio mode for a few centimeters.
+**Start with the illustrated explainer:** [How can fat guide a radio wave?](explainer/README.md). It follows a radio mode that remains concentrated in fat for a few centimeters even though fat cannot guide by the optical-fiber rule.
 
 ## Method
 
-The argument-principle method (APM) locates every TM or TE root in a search region and places it on one of the dispersion function's four Riemann sheets, so bound, leaky and improper modes come from one search. Tissue permittivities follow the Cole-Cole model of Gabriel et al. (1996). The package also gives mode profiles, power in each layer and each pole's residue in the TM reflection coefficient.
+The argument-principle method (APM) locates every TM or TE root in a search region and places it on one of the dispersion function's four Riemann sheets, distinguishing proper (bound) from improper (leaky) outer fields in one search. Tissue permittivities follow the Cole-Cole model of Gabriel et al. (1996). The package also gives mode profiles, power in each layer and each pole's residue in the TM reflection coefficient, which sets how strongly a source excites that mode.
 
 The dispersion function F depends on the normalized transverse decay constants γ_t = √(n² − ε_t) and γ_b = √(n² − ε_b) of the two half-spaces, so as a function of the effective index n it lives on a four-sheeted Riemann surface (Smith, Houde-Walter and Forbes 1992). Since γ_t² − γ_b² = ε_b − ε_t = C, the substitution γ_t = (√C/2)(t + 1/t), γ_b = (√C/2)(t − 1/t) makes F single-valued in t, and one rectangle in z = log t covers all four sheets.
 
@@ -15,6 +15,8 @@ The APM counts the zeros in a rectangle from the change of arg F along its edges
 ## Install
 
 ```bash
+git clone https://github.com/sinkarusa/tissue-slab-modes.git
+cd tissue-slab-modes
 pip install -e .              # numpy, scipy, mpmath, matplotlib
 pip install -e ".[check]"     # also pytest
 ```
@@ -25,24 +27,28 @@ pip install -e ".[check]"     # also pytest
 
 ```python
 from tissue_slab_modes import Layer, Stack, find_modes
+from tissue_slab_modes.fields import mode_profile, power_fractions
 from tissue_slab_modes.materials import eps
 from tissue_slab_modes.sommerfeld import residue_R
 
-f = 2.45e9                                          # Hz
+f = 2.45e9                                          # Asan et al. (2017) geometry at 2.45 GHz
 st = Stack(f, "air", 1.0, [Layer("skin", eps("skin", f), 2e-3), Layer("fat", eps("fat", f), 25e-3)],
            "muscle", eps("muscle", f))              # air | skin 2 mm | fat 25 mm | muscle
 modes = find_modes(st, "TM")                        # 34 roots on the four sheets
 fat = min((m for m in modes if m.is_bound and m.loss_dB_per_cm > 0), key=lambda m: m.loss_dB_per_cm)
 print(fat)
 print(f"{residue_R(fat.n_eff, st):.4f}")
+fractions = power_fractions(st, mode_profile(st, fat.n_eff, fat.gamma_top, fat.gamma_bot, "TM"))
+print(f"{fractions['fat']:.3f}")
 ```
 
 ```
 TM n_eff =   2.1645  -0.3421j   loss =    1.526 dB/cm   sheet(top/bot) = P/P
 0.0176+0.0216j
+0.936
 ```
 
-`sheet` marks the top and bottom half-spaces as proper (P, the field decays away from the stack) or improper (I); P/P is a bound mode, and one improper side makes a mode leaky. This mode carries 94 % of its power in the fat (`fields.power_fractions`).
+`sheet` marks the top and bottom half-spaces as proper (P, the field decays away from the stack) or improper (I); P/P is proper on both sides, while one improper side makes a leaky mode. The final call shows that this mode carries 94 % of its power in fat.
 
 ## Layout
 
@@ -76,4 +82,4 @@ Python 3.11.17, NumPy 2.4.6, SciPy 1.17.1, mpmath 1.4.1, Matplotlib 3.11.2 and p
 
 ## License
 
-The code is released under the MIT License ([`LICENSE`](LICENSE)). Figures and videos in `explainer/` that are derived from the SimNIBS Ernie Extended head model are licensed CC BY-NC 4.0; [`explainer/README.md`](explainer/README.md) (Data and licenses) lists them.
+The code is released under the MIT License ([`LICENSE`](LICENSE)). Figures and videos derived from the SimNIBS Ernie Extended head model are licensed CC BY-NC 4.0; figures derived from the New York Head carry that dataset's copyright-and-permission notice. The affected files, source terms and citations are listed under [`explainer/head_data_check/README.md`](explainer/head_data_check/README.md#sources-licenses-and-citations).
