@@ -1,8 +1,8 @@
 # tissue-slab-modes
 
-`tissue_slab_modes` finds and classifies electromagnetic modes in lossy planar multilayer stacks, including layers of human tissue, and reports their fields, loss, power distribution and source coupling.
+`tissue_slab_modes` finds and classifies the electromagnetic modes of lossy planar multilayers, such as layers of human tissue, and computes their fields, loss, power distribution and source coupling.
 
-**Start with the illustrated explainer:** [How can fat guide a radio wave?](explainer/README.md). It follows a radio mode that remains concentrated in fat for a few centimeters even though fat cannot guide by the optical-fiber rule.
+The explainer [How can fat guide a radio wave?](explainer/README.md) uses the solver to show how a radio wave can stay concentrated in a fat layer for a few centimeters, although fat has a lower refractive index than the tissue around it.
 
 ## Method
 

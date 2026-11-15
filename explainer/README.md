@@ -1,18 +1,22 @@
 # How can fat guide a radio wave?
 
-> Fat should be a poor waveguide: unlike an optical-fiber core, it has a lower refractive index than the wet tissue around it. Yet our calculations show a radio wave remaining concentrated in fat for a few centimeters. Wet tissue partly reflects a grazing wave, while absorption kills what escapes.
+Many years ago, just as the first AirPods came out, I worked on a Bluetooth link between two wireless earbuds. Most truly wireless earbuds then connected the phone to one earbud over Bluetooth and relayed the audio to the other by near-field magnetic induction (NFMI). I used the argument-principle method (APM) to look for modes that could carry a Bluetooth signal from one ear to the other around the very lossy blob we call the human head. A few existed in theory, among them a surface wave and what I called a super-lossy "fat-guided" mode, but the chance of a working link was low and the project was canned.
 
-Everything here is computed, not measured. The flat-layer results come from the argument-principle solver in [tissue-slab-modes](../README.md), using tissue permittivities from Gabriel et al. (1996); the curved-head checks are full-wave simulations of one anatomical model.
+The other day a "smart" scale reminded me how much extra fat I carry in my arms and belly, and I remembered that project. All I had left from it was a Mathematica notebook, and coding agents now do this kind of work much faster, so I asked Claude and friends to recreate the analysis; I remembered the results well enough to check them. I also wanted to extend it to other parts of the body, hoping to find something vaguely interesting, perhaps even the basis for a wireless fat sensor that could track, part by part, what midlife without exercise does to me. Maybe it will prompt me to act.
 
-**"Guided" here means confined and steered over a few centimeters, not carried far.** The fields lose most of their power in less than one guide wavelength, much as any radio wave does in wet tissue.
+This write-up is the result. An LLM wrote the text, and LLMs wrote the code and did the research under my direction.
 
-## 1. What a waveguide needs
+The post explains how a radio wave can stay concentrated in a fat layer for a few centimeters, although fat has a lower refractive index than the wet tissue around it and so, by the rule that confines light in an optical fiber, should not guide one. The wet tissue on each side partly reflects a wave that meets it at a grazing angle and absorbs the part that crosses into it; skull bone holds a wave the same way. Section 1 reviews how waveguides confine a wave, section 2 describes the grazing-reflection mechanism and how far such modes travel, and section 3 classifies the modes and how a source excites them. Section 4 covers the modes of fat, skull bone, and muscle in flat layer models, section 5 checks them in full-wave simulations of an anatomical head, and section 6 compares the skin's Zenneck surface wave with a surface plasmon on gold.
 
-A waveguide stops a wave from spreading sideways. Two familiar mechanisms do the job.
+All results are calculations. The flat-layer modes come from the argument-principle solver in [tissue-slab-modes](../README.md) with the tissue permittivities of Gabriel et al. (1996); the curved-head results are full-wave simulations of one anatomical head model. "Guided" here means confined and steered over a few centimeters, not carried far: the fields lose most of their power in less than one guide wavelength, much as any radio wave does in wet tissue.
 
-**Walls that reflect.** A microwave oven feeds its 2.45 GHz power through a short rectangular metal pipe (Vollmer 2004). Metal reflects almost all of the wave, but a closed pipe must exceed half a wavelength across—6.1 cm in air at 2.45 GHz—and carries nothing below that *cutoff*. Two parallel metal plates have no thickness cutoff.
+## 1. Reflecting walls and slow cores
 
-**A slower core.** An optical fiber's glass core has a slightly higher *refractive index* than the glass around it, so light travels more slowly in the core. Light meeting the boundary at a grazing angle is totally reflected. The field outside is *evanescent*: it dies away exponentially and carries no power off.
+A waveguide keeps a wave from spreading sideways, either with walls that reflect it or with a core in which it travels more slowly than in the surroundings.
+
+A microwave oven feeds its 2.45 GHz power through a short rectangular metal pipe (Vollmer 2004). Metal reflects almost all of the wave, but a closed pipe must be more than half a wavelength across—6.1 cm in air at 2.45 GHz—and carries nothing below that *cutoff*. Two parallel metal plates have no thickness cutoff.
+
+In an optical fiber, the glass core has a slightly higher *refractive index* than the glass around it, so light travels more slowly in the core and is totally reflected when it meets the boundary at a grazing angle. The field outside the core is *evanescent*: it decays exponentially and carries no power away.
 
 A transverse field pattern that keeps its shape as it travels is a **mode**. We write its variation along the guide as exp(−jβz − αz), where β is the phase constant and α is the field attenuation rate. A mode whose field dies away evanescently on both sides is **bound**.
 
@@ -26,25 +30,25 @@ For the symmetric slab in Figure 1, a core of permittivity $\varepsilon_c$ and t
 
 $$\frac{\kappa}{\varepsilon_c}\tan\left(\frac{\kappa k_0 d}{2}\right)=\frac{\gamma_w}{\varepsilon_w},\qquad \kappa=\sqrt{\varepsilon_c-n^2},\quad \gamma_w=\sqrt{n^2-\varepsilon_w}.$$
 
-This one equation produces all three panels; the [appendix](CATALOG.md#the-equations-we-solve) derives the multilayer form and explains its sheets.
+The same equation gives all three panels; the [appendix](CATALOG.md#the-equations-we-solve) derives the multilayer form and its Riemann sheets.
 
-## 2. The grazing-reflection mechanism
+## 2. Grazing reflection from wet tissue
 
 In an outer half-space, a **proper** field decays with depth; an **improper** field grows because it represents radiation launched upstream, where the mode was stronger. We label the top and bottom sides P or I. The first letter is the top (air) side: P/P is proper on both sides, I/P leaks into air, and P/I leaks into the body.
 
 In lossy tissue, proper does not imply total internal reflection. We reserve plain *bound* for a truly evanescent mode and write **"bound" through wall loss** when absorption alone makes the outer field proper.
 
-Fat and bone are low-index cores between high-permittivity walls, like Figure 1b. **Grazing reflection from high-permittivity walls** holds a wave in them for a while: wet tissue around fat or bone partly reflects a TM wave at each bounce. In the 8 mm fat slab, each bounce sends back about a third of the power and 72 % of the mode's power flows in the fat, a little like a very leaky parallel-plate guide.
+Fat and bone are low-index cores between high-permittivity walls, as in Figure 1b. The wet tissue on each side partly reflects a TM wave at every bounce, which holds the wave in the core for a while. In the 8 mm fat slab, each bounce returns about a third of the power and 72 % of the mode's power flows in the fat; the structure resembles a very leaky parallel-plate guide.
 
 The rest refracts steeply into the wet wall. Absorption there makes the refracted field die with depth, so the mathematical solution is proper on both sides even though total internal reflection never occurs. With the wall loss removed, Figure 1c shows the corresponding leaky solution: its field grows with depth because rays farther from the guide left it farther upstream, where its amplitude was larger.
 
-High permittivity supplies much of the reflection; wall loss changes the Riemann-sheet label from improper to proper. In Figure 1, the lossless-wall and lossy-wall modes lose almost the same power—3.91 and 3.77 dB/cm—even though only the latter is proper. A more conductive wall eventually reflects better and lowers the modal loss toward the metal-plate limit, the **coal-seam effect** known from mining radio (Emslie & Lagace 1976; Wait 1976; Hill 1984).
+The reflection comes largely from the walls' high permittivity, and the wall loss changes the Riemann-sheet label from improper to proper. In Figure 1, the lossless-wall and lossy-wall modes lose almost the same power, 3.91 and 3.77 dB/cm, although only the second is proper. A more conductive wall eventually reflects better and lowers the modal loss toward the metal-plate limit, the **coal-seam effect** known from mining radio (Emslie & Lagace 1976; Wait 1976; Hill 1984).
 
 Siegman (2003, 2007) described the complementary route: gain in a lower-index core can replenish the power lost by refraction and move an antiguide mode onto the proper sheet. Wall absorption is the Riemann-sheet mirror of that gain guiding, exact for TE and nearly so for TM. We take **"loss-guided"** from Nagel, Blair & Scarpulla (2011), who took it from Siegman (2003), but their absorbing film is the **reverse geometry**: a lossy core between lossless walls. In fat and bone, both the grazing reflection and the sheet-flipping loss come from the wet walls, so we call the regime **lossy-wall loss guiding**, or **"bound" through wall loss**.
 
-### How far a mode travels
+### Travel distance
 
-A low loss in dB per centimeter is not automatically a long journey if the guide wavelength is long. The ratio β/(2α) = Re n/|2 Im n| counts the radians of phase gained per e-fold, or 4.34 dB, of power decay. Dividing that ratio by 2π gives the number of guide wavelengths traveled before the power falls to 1/e.
+A loss in dB per centimeter says little about how far a mode travels until it is compared with the guide wavelength. The ratio β/(2α) = Re n/|2 Im n| counts the radians of phase gained per e-fold, or 4.34 dB, of power decay. Dividing that ratio by 2π gives the number of guide wavelengths traveled before the power falls to 1/e.
 
 Every source-excitable, or **captured**, tissue mode here travels less than one guide wavelength per e-fold of power, from 0.04 on the wrist to 0.63 in the limb. At 2.44 GHz, even an unguided plane wave in wet tissue travels only 0.4–0.7 wavelengths per e-fold; fat, at 1.1, is the exception. The layers still add useful confinement: the field spreads sideways, so its power thins roughly as 1/r instead of 1/r², and a fat layer at least 8 mm thick also gives lower loss than the surrounding wet tissue.
 
@@ -56,11 +60,11 @@ Every source-excitable, or **captured**, tissue mode here travels less than one 
 
 The full comparison is in the appendix under [Travel distance](CATALOG.md#travel-distance); [Appendix Figure 10](CATALOG.md#figure-10-frequency-and-overdamping) gives the frequency sweeps.
 
-## 3. Mode classification and source excitation
+## 3. Mode types and source excitation
 
 We model the body first as flat layers, with $x$ across them and the wave traveling along $z$. Modes split into two polarizations: **TM** (transverse magnetic), with $H_y$ parallel to the layers and the main electric field $E_x$ normal to them, and **TE** (transverse electric), with $E_y$ parallel to the layers. Because the normal flux $\varepsilon E_x$ is continuous across a boundary, a TM wave concentrates its electric field and power in a low-ε layer such as fat or bone.
 
-Solving the boundary conditions gives a dispersion function $F(n)$; each zero of $F$ is a possible mode. The table combines the sheet labels defined above with the physical confinement mechanism.
+Solving the boundary conditions gives a dispersion function $F(n)$; each zero of $F$ is a possible mode. The table classifies the zeros by sheet label and by what confines the field.
 
 | type | what holds it | example here |
 |---|---|---|
@@ -70,35 +74,35 @@ Solving the boundary conditions gives a dispersion function $F(n)$; each zero of
 | surface plasmon | a single interface with Re ε < −1; truly bound | gold, not tissue |
 | branch-cut wave | not a mode; part of a source's continuous spectrum | the Norton ground wave over skin; a lateral wave in tissue |
 
-A real source produces more than discrete modes. In the exact spectral solution, zeros of $F$ appear as **poles**, whose residues give discrete mode terms; **branch cuts** supply a continuous background containing the space wave, the Norton ground wave in air, and a lateral wave in the body. Moving the integration path picks up only the poles that the source field can reach. The full integral, capture rule, and numerical check belong in the [appendix](CATALOG.md#the-spectral-integral-and-capture-rule).
+A real source produces more than discrete modes. In the exact spectral solution, zeros of $F$ appear as **poles**, whose residues give discrete mode terms; **branch cuts** supply a continuous background containing the space wave, the Norton ground wave in air, and a lateral wave in the body. Moving the integration path picks up only the poles that the source field can reach. The full integral, capture rule, and numerical check are in the [appendix](CATALOG.md#the-spectral-integral-and-capture-rule).
 
-This is why a zero of $F$ need not appear in any source field. Beside the upper arm's P/P fat mode sits an I/P twin with almost the same profile in the fat but a field that grows into the air. Because it is slower than light, it cannot radiate into air; it lies outside the region swept by the field integral, so no source excites it. The [full pole map, Appendix Figure 8](CATALOG.md#figure-8-the-full-pole-map), makes the uncaptured twin visible.
+A zero of $F$ therefore need not appear in any source field. Beside the upper arm's P/P fat mode sits an I/P twin with almost the same profile in the fat but a field that grows into the air. Because it is slower than light, it cannot radiate into air; it lies outside the region swept by the field integral, so no source excites it. The [full pole map, Appendix Figure 8](CATALOG.md#figure-8-the-full-pole-map), shows the uncaptured twin.
 
-Coupling adds another qualification. For a small line source inside the upper-arm fat and normal to the layers, the fat mode carries 86 % of the exact surface-field $|H_y|$ amplitude at 2 cm. Moving a normal current 1 mm above the skin reduces its coupling to the mode by only 3.6 dB but excites the air-side branch-cut waves much more strongly, so the mode's share collapses; a tangential current at the same height still leaves the fat mode with 54 % of the field at 2 cm. A mode decays exponentially while a branch-cut integral falls only algebraically, so the continuous background eventually dominates.
+How strongly a source excites a mode depends on where the source sits and how it points. For a small line source inside the upper-arm fat and normal to the layers, the fat mode carries 86 % of the exact surface-field $|H_y|$ amplitude at 2 cm. Moving a normal current 1 mm above the skin reduces its coupling to the mode by only 3.6 dB but excites the air-side branch-cut waves much more strongly, so the mode's share collapses; a tangential current at the same height still leaves the fat mode with 54 % of the field at 2 cm. A mode decays exponentially while a branch-cut integral falls only algebraically, so the continuous background eventually dominates.
 
 ## 4. Modes in the body
 
 Water raises both a tissue's index and its loss: wet tissues have high permittivity and absorb strongly, while fat and bone contain less water (Gabriel et al. 1996). At 2.44 GHz, fat has $\varepsilon\approx5.3-0.8j$ and a plane-wave loss of 0.74 dB/cm; muscle has $\varepsilon\approx52.7-12.8j$ and a loss of 3.87 dB/cm. The complete tissue table and the five flat stacks are in the [appendix](CATALOG.md#tissues-stacks-and-scale).
 
-At 2.44 GHz, most layers in these stacks lie in the thin-film regime. A ray picture can illustrate a mode, but the wave equation computes it.
+At 2.44 GHz most layers in these stacks are thin compared with the wavelength inside them, so ray pictures only illustrate the modes; the modes themselves are computed from the wave equation.
 
 ![Four TM modes of layered tissue at 2.44 GHz: the Zenneck-type surface wave, the "bound" fat and skull modes, and the temporalis mode leaking through thin bone.](figures/01_mode_family.png)
 
 **Figure 2.** Four TM mode families at 2.44 GHz: a Zenneck-type surface wave, the "bound" fat mode, the "bound" occipital skull mode, and the temporalis mode leaking into the brain through 1.5 mm of bone. Each panel shows normalized $|H_y|$ against height, with the mode's index, loss, and power share below it.
 
-Figure 2 compares where four fields concentrate and what holds them there. The fat and skull peaks sit in low-index layers, so ordinary fiber guiding cannot confine them. The temporalis peak sits in high-index muscle, but the thin bone below lets the field tunnel into the brain. The Zenneck profile is different again: almost all of its power lies in air. Similar transverse peaks can therefore belong to a truly bound mode, a mode "bound" through wall loss, a leaky mode, or a surface pole that an ordinary source does not capture.
+In Figure 2, the fat and skull peaks sit in low-index layers, so ordinary fiber guiding cannot confine them. The temporalis peak sits in high-index muscle, but the thin bone below lets the field tunnel into the brain. The Zenneck profile is different again: almost all of its power lies in air. Similar transverse peaks can therefore belong to a truly bound mode, a mode "bound" through wall loss, a leaky mode, or a surface pole that an ordinary source does not capture.
 
 ![Five rows, one per mode. Left: real and imaginary permittivity against height. Middle: the mode's transverse profile. Right: a static red and blue field map, height against distance: a clean pattern inside limb muscle; tilted fronts leaving the fat and skull layers downward; a strong leak from the temporalis into the brain; and forward-leaning fronts in the air above the temple.](figures/modes/launch_maps.png)
 
 **Figure 3.** Idealized, mode-matched launches separate true confinement, lossy-wall confinement, leakage through thin bone, and an air-dominated surface wave; a real antenna also excites other fields. The [animated overview](figures/modes/launch_maps.gif) and [individual stills and GIFs](figures/modes/) show the propagation in detail.
 
-The propagation maps add the direction along the guide. The limb-muscle pattern stays inside its core. The fat and skull patterns shed tilted fronts into wetter tissue, while the temporalis pattern leaks through bone into the brain. Its improper tail grows with depth by 0.2 dB/cm because the farther field was launched earlier and farther upstream. The Zenneck crests lean into skin while most power remains in air. These launches isolate one mode at a time; an antenna also excites other poles and the branch-cut background described in section 3.
+Along the guide, the limb-muscle pattern stays inside its core. The fat and skull patterns shed tilted fronts into wetter tissue, while the temporalis pattern leaks through bone into the brain. Its improper tail grows with depth by 0.2 dB/cm because the farther field was launched earlier and farther upstream. The Zenneck crests lean into skin while most power remains in air.
 
-### Fat: partial reflection from wet walls
+### Fat
 
 On the upper-arm stack (skin 1.5 mm | fat 10 mm | muscle), the TM fat mode has $n = 1.832 − 0.667j$, keeps 82 % of its power in fat, and loses 3.0 dB/cm. Through the thin skin, total internal reflection holds its top side against the air; only the muscle side's "bound" label comes from wall loss.
 
-The body side differs: fat remains the faster layer, and the field crosses into muscle. The mode is held by an ordinary index step against air and by lossy-wall loss guiding toward the body.
+On the body side, fat remains the faster layer and the field crosses into muscle. The mode is therefore held by an ordinary index step against air and by lossy-wall loss guiding toward the body.
 
 Figure 4 shows how thickness controls the field's exposure to the resistive walls. In the symmetric model, thinning the fat from 25 mm to 1 mm raises both effective index and loss; below about 2 mm, the mode becomes leaky. Increasing wall conductivity instead lowers the loss toward the perfect-metal limit because the field is increasingly excluded from the walls.
 
@@ -108,11 +112,11 @@ Figure 4 shows how thickness controls the field's exposure to the resistive wall
 
 The mode's loss also changes with frequency, and the optimum depends on thickness. The abdomen's 20 mm fat layer reaches about 1.6 dB/cm near 1.7 GHz; the thinner upper arm and wrist need progressively higher frequencies before phase advances faster than power decays. [Appendix Figure 10](CATALOG.md#figure-10-frequency-and-overdamping) gives the full sweep.
 
-### Bone: the same mechanism in the skull
+### Skull bone
 
 At the back of the head, an 8.4 mm three-layer skull under 3 mm of fat forms another low-index region between wet tissues. Its fundamental TM mode at 2.44 GHz is "bound" through wall loss, keeps 46 % of its power in bone, and loses 5.5 dB/cm. The field also occupies gray matter and fat, so "skull-guided" names its concentration rather than a sealed channel.
 
-### Muscle: true index guiding, with and without a leak
+### Muscle
 
 Muscle between fat and bone can guide by total internal reflection, as a fiber does. In an assumed limb stack with 25 mm of muscle above cortical bone and low-water yellow marrow, the fundamental TE mode at 2.44 GHz keeps 98 % of its power in muscle and loses 4.0 dB/cm. This is a truly bound mode, but it rides in wet tissue and therefore pays about the tissue's own bulk loss.
 
@@ -122,7 +126,7 @@ At the temple, the field peaks in high-index temporalis muscle between fat and t
 
 **Figure 5.** Temple-stack TM mode at 2.44 GHz. Loss and effective index change smoothly through the switch from "bound" (P/P, dots) to leaky (P/I, triangles); the shading marks measured squama thickness. The profiles compare 4.0 mm and 1.5 mm of bone.
 
-Nagel, Blair & Scarpulla's (2011) reverse geometry, a lossy core between lossless walls, appears in tissue only in idealized form. At 7.99 GHz, a lossy muscle core in lossless fat carries coupled Zenneck-type waves on its faces that are proper only because the core is lossy; fat's real loss turns them improper. At 2.44 GHz, a fat core between lossless muscle would need 3.7–7 times its real loss (TM) to carry such a root. The gain-guiding comparison and TE thresholds are in [Appendix §2](CATALOG.md#2-the-fat-mode-lossy-wall-loss-guiding-the-headline); the reverse-geometry calculations are in [Appendix §7](CATALOG.md#7-the-reverse-geometry-a-lossy-core).
+Nagel, Blair & Scarpulla's (2011) reverse geometry, a lossy core between lossless walls, appears in tissue only in idealized form. At 7.99 GHz, a lossy muscle core in lossless fat carries coupled Zenneck-type waves on its faces that are proper only because the core is lossy; fat's real loss turns them improper. At 2.44 GHz, a fat core between lossless muscle would need 3.7–7 times its real loss (TM) to carry such a root. The gain-guiding comparison and TE thresholds are in [Appendix §2](CATALOG.md#2-the-fat-mode-lossy-wall-loss-guiding); the reverse-geometry calculations are in [Appendix §7](CATALOG.md#7-the-reverse-geometry-a-lossy-core).
 
 ## 5. In a real head
 
@@ -157,22 +161,17 @@ Layering pulls the tissue pole closer to the body and raises its attenuation: ov
 
 A small antenna on or near skin does not launch the Zenneck pole in these stacks. At the temple it is hidden under the air branch cut and drops out of the source field; a large profile-matched aperture can form a Zenneck-like field only near the aperture (Hill & Wait 1980). Much of an ordinary antenna's surface field is instead the Norton ground wave plus the space wave, the resolution of a long debate over Zenneck's wave (Collin 2004; Michalski & Mosig 2016). The same branch-cut physics describes medium-wave AM over flat ground (Norton 1936, 1937), while very-low-frequency radio between ground and ionosphere is a distinct reflecting-wall guide (Wait 1957).
 
-## 7. Uses and measurements
+## 7. Related work
 
 The subcutaneous fat channel is already measured and used in research. The Uppsala *Fat-IBC* group models fat between skin and muscle as a microwave dielectric waveguide for intra-body communication (Asan et al. 2017, 2018), reaching 92 Mb/s with low-cost WLAN hardware (Rangaiah et al. 2024) and later 120 Mb/s (Engstrand et al. 2025; Engstrand 2026). RF links through the skull are also being studied directly (Särestöniemi et al. 2022). Hearing-aid signals creep around the head mainly through the air outside the skin (Kvist, Thaysen & Jakobsen 2015); our dipole check in section 5 agrees.
 
-The modal synthesis connects the fat and skull modes with gain-guided antiguides, coal-seam propagation, and loss-guided thin films while keeping reflection separate from the wall loss that changes the sheet label. The occipital skull mode is "bound" through wall loss, while the temporalis mode is index-guided but tunnels through the squama. The appendix lists related [patents and prior art](CATALOG.md#patent-and-prior-art-inventory).
+The fat and skull modes connect to older work on gain-guided antiguides in fiber lasers (Siegman 2003, 2007), radio propagation in coal seams (Emslie & Lagace 1976; Wait 1976; Hill 1984), and loss-guided thin films (Nagel, Blair & Scarpulla 2011). The analysis here keeps the reflection that confines the wave separate from the wall loss that changes its sheet label. The appendix lists related [patents and prior art](CATALOG.md#patent-and-prior-art-inventory).
 
-A field that stays near fat can contain the fat-mode pole together with air-side Norton and space-wave branch-cut terms. Received amplitude alone does not assign those contributions. Phase advance along the layer, decay with distance, transverse field shape, and source orientation provide distinct checks against the calculated effective index, loss, profile, and residue.
+## Summary and scope
 
-## What we don't know yet
+Fat and skull bone hold a radio wave for a few centimeters because the wet tissue around them partly reflects a grazing wave. Absorption in that tissue makes the field decay away from the layer, so on their wet sides these modes are "bound" through wall loss rather than by total internal reflection. Muscle in a limb, and CSF for TE waves at 7.99 GHz, are truly bound by an index step, as a fiber core is; the temporalis mode is index-guided on its fat side and tunnels into the brain where the squama is thinner than 1.64 mm. Every captured tissue mode travels less than one guide wavelength per e-fold of power.
 
-- **Anatomy.** The 1D stacks are flat and uniform, whereas real bodies curve and contain vessels, sutures, and fibers. The 3D simulations test one anatomical head, SimNIBS Ernie Extended.
-- **Launching and link budgets.** Figure 3 and the 3D mode-launch runs use idealized mode-matched profiles. For real sources, we have only a small line source's share of the surface field in the flat stacks.
-- **The limb.** The truly bound limb-muscle mode rests on an assumed planar geometry with low-water yellow marrow beneath the cortex.
-- **Measurements.** Fat-IBC has measured the fat channel, but no mode's index or loss reported here has been measured directly; all values come from Gabriel Cole-Cole models.
-
-The next test is the upper-arm signature: $n \approx 1.83 − 0.67j$ and 3.0 dB/cm, together with the predicted transverse profile and orientation dependence. Phase, decay, profile, and source orientation can distinguish the mode from the surrounding field.
+The flat-layer results assume uniform, planar layers, and all results use Gabriel Cole-Cole permittivities. The curved-geometry checks use one head, SimNIBS Ernie Extended, and the limb-muscle mode uses an assumed planar stack with low-water yellow marrow beneath the cortex. Source coupling was computed for small line sources in the flat stacks and for point dipoles in the 3D head; Figure 3 and the 3D mode launches use idealized mode-matched profiles. Fat-IBC has measured transmission through the fat channel, but none of the modal indices or losses reported here has been measured directly. A field received near fat can combine the fat-mode pole with air-side Norton and space-wave terms, so its amplitude alone does not identify the mode.
 
 ## References
 
